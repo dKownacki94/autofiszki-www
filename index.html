@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoFiszki — nauka słówek na ekranie blokady | Kup raz, ucz się zawsze</title>
+  <meta name="description" content="AutoFiszki pokazują fiszki ze słówkami prosto na ekranie blokady telefonu. Inteligentne powtórki FSRS, 2859 słów angielskich i 2500 hiszpańskich w zestawie. Płacisz raz, bez reklam i subskrypcji. Wkrótce w Google Play.">
+  <meta name="theme-color" content="#0b1020">
+  <meta property="og:title" content="AutoFiszki — nauka słówek na ekranie blokady">
+  <meta property="og:description" content="Odblokowujesz telefon ponad 100 razy dziennie. AutoFiszki sprawiają, że przy okazji uczysz się słówek. Bez reklam i subskrypcji. Wkrótce w Google Play.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://autofiszki.pl/">
+  <meta property="og:image" content="https://autofiszki.pl/img/icon-512.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://autofiszki.pl/">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "AutoFiszki",
+    "operatingSystem": "Android 8.0+",
+    "applicationCategory": "EducationalApplication",
+    "description": "Aplikacja do nauki słówek metodą fiszek z algorytmem powtórek FSRS-4.5 i nauką na ekranie blokady telefonu.",
+    "inLanguage": "pl",
+    "offers": {
+      "@type": "Offer",
+      "price": "9.99",
+      "priceCurrency": "PLN",
+      "availability": "https://schema.org/PreOrder"
+    },
+    "url": "https://autofiszki.pl/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kiedy aplikacja będzie dostępna?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Już niedługo — trwają ostatnie przygotowania do publikacji w Google Play. W dniu premiery na tej stronie pojawi się link do sklepu." }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy to na pewno jednorazowy zakup?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tak. Płacisz raz w Google Play i aplikacja jest Twoja, razem ze wszystkimi taliami i przyszłymi aktualizacjami. Nie ma subskrypcji, mikropłatności ani wersji premium." }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy w aplikacji są reklamy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nie ma i nigdy nie będzie. Skoro płacisz za aplikację, nie jesteś produktem." }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak działa nauka na ekranie blokady?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AutoFiszki generują tapetę ekranu blokady z Twoimi aktualnymi fiszkami i co jakiś czas ją odświeżają. Za każdym razem, gdy sięgasz po telefon, widzisz słówka bez otwierania czegokolwiek. Wygląd tapety ustawiasz we wbudowanym edytorze." }
+      },
+      {
+        "@type": "Question",
+        "name": "Co to jest FSRS i czym różni się od zwykłych fiszek?",
+        "acceptedAnswer": { "@type": "Answer", "text": "FSRS-4.5 (Free Spaced Repetition Scheduler) to nowoczesny algorytm powtórek rozłożonych w czasie. Na podstawie Twoich ocen przewiduje, kiedy zaczniesz zapominać dane słowo, i właśnie wtedy je pokazuje. W praktyce robisz mniej powtórek, a pamiętasz więcej." }
+      },
+      {
+        "@type": "Question",
+        "name": "Jakich języków mogę się uczyć?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Obecnie w aplikacji są talie fundamentalne angielskiego (2859 słów) i hiszpańskiego (2500 słów) z polskimi tłumaczeniami, a do tego talie stolic świata i pierwiastków chemicznych. Kolejne talie pojawią się w darmowych aktualizacjach." }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy aplikacja wymaga internetu albo konta?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nie. Wszystkie dane są na Twoim telefonie, nauka działa w pełni offline i nie musisz zakładać żadnego konta." }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakich telefonach działa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Na telefonach z Androidem 8.0 lub nowszym. Wersja na iOS nie jest obecnie planowana." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAWIGACJA ===== -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#" class="nav-logo">
+        <img class="logo-mark" src="img/icon-play.webp" alt="Ikona AutoFiszki" width="34" height="34">
+        AutoFiszki
+      </a>
+      <button class="nav-toggle" aria-label="Otwórz menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#jak-to-dziala">Jak to działa</a></li>
+        <li><a href="#funkcje">Funkcje</a></li>
+        <li><a href="#talie">Talie</a></li>
+        <li><a href="#cennik">Cennik</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <!-- Po premierze przywróć: <a href="#cennik" class="btn btn-primary btn-sm">Pobierz aplikację</a> -->
+        <li><span class="btn btn-soon btn-sm"><span class="pulse-dot" aria-hidden="true"></span>Wkrótce w Google Play</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-eyebrow"><span class="pulse-dot" aria-hidden="true"></span>Nauka bez otwierania aplikacji</p>
+          <h1>Ucz się słówek przy <span class="grad-text">każdym spojrzeniu</span> na&nbsp;telefon</h1>
+          <p class="hero-sub">
+            Odblokowujesz telefon ponad <strong>100 razy dziennie</strong>.
+            AutoFiszki wykorzystują każdą z tych chwil: na ekranie blokady czekają
+            fiszki ze słówkami, które akurat powtarzasz.
+          </p>
+          <div class="hero-badges">
+            <span class="badge"><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Zero reklam</span>
+            <span class="badge"><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Płacisz raz</span>
+            <span class="badge"><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Bez subskrypcji</span>
+            <span class="badge"><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Działa offline</span>
+          </div>
+          <div class="hero-cta">
+            <!-- Po premierze przywróć (zweryfikuj link):
+            <a href="https://play.google.com/store/apps/details?id=dev.kownet.autofiszki" class="btn btn-primary btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 1.8c-.4.2-.6.6-.6 1.1v18.2c0 .5.2.9.6 1.1l10-10.2-10-10.2zm12.6 7.6L5.9 3.5l7.9 8 2.4-2.1zm3.9 2.2l-2.6-1.5-2.7 2.4 2.7 2.4 2.6-1.5c.8-.5.8-1.3 0-1.8zM5.9 22.5l10.3-5.9-2.4-2.1-7.9 8z"/></svg>
+              Pobierz w Google Play
+            </a>
+            -->
+            <span class="btn btn-soon btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 1.8c-.4.2-.6.6-.6 1.1v18.2c0 .5.2.9.6 1.1l10-10.2-10-10.2zm12.6 7.6L5.9 3.5l7.9 8 2.4-2.1zm3.9 2.2l-2.6-1.5-2.7 2.4 2.7 2.4 2.6-1.5c.8-.5.8-1.3 0-1.8zM5.9 22.5l10.3-5.9-2.4-2.1-7.9 8z"/></svg>
+              Wkrótce w Google Play
+            </span>
+            <a href="#jak-to-dziala" class="btn btn-ghost btn-lg">
+              Zobacz, jak to działa
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+          </div>
+          <p class="hero-note">Android 8.0 lub nowszy · aplikacja po polsku</p>
+        </div>
+
+        <!-- Prawdziwy zrzut ekranu blokady z aplikacji -->
+        <div class="hero-phone">
+          <div class="phone">
+            <img class="phone-shot" src="img/screen1.jpg" width="600" height="1333"
+                 fetchpriority="high" decoding="async"
+                 alt="Ekran blokady telefonu z fiszką AutoFiszki: słowo adviser, wymowa /ædˈvaɪzɚ/ i tłumaczenie doradca">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASEK LICZB ===== -->
+    <section class="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <span class="stat-value" data-count="2859">2859</span>
+          <span class="stat-label">angielskich słów czeka w talii głównej</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-value" data-count="92" data-prefix="~" data-suffix="%">~92%</span>
+          <span class="stat-label">tyle zrozumiesz z codziennych rozmów po angielsku</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-value" data-count="10">10</span>
+          <span class="stat-label">gotowych talii, od słówek po pierwiastki chemiczne</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-value" data-count="0">0</span>
+          <span class="stat-label">reklam, subskrypcji i niespodzianek w cenniku</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== JAK TO DZIAŁA ===== -->
+    <section id="jak-to-dziala" class="section">
+      <div class="container">
+        <p class="section-eyebrow reveal">Proces</p>
+        <h2 class="section-title reveal">Jak to działa?</h2>
+        <p class="section-sub reveal">Trzy proste kroki — potem nauka dzieje się sama.</p>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">1</div>
+            <h3>Wybierz talię</h3>
+            <p>Angielski, hiszpański, stolice świata albo pierwiastki chemiczne.
+               W taliach językowych słowa są ułożone od najczęściej używanych,
+               więc zaczynasz od tych, na które faktycznie trafisz w rozmowie.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">2</div>
+            <h3>Fiszki trafiają na ekran blokady</h3>
+            <p>Aplikacja co jakiś czas podmienia tapetę ekranu blokady na Twoje
+               aktualne słówka. Wystarczy, że sięgniesz po telefon, a powtórka
+               dzieje się przy okazji.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">3</div>
+            <h3>Utrwalaj w krótkich sesjach</h3>
+            <p>Algorytm <strong>FSRS‑4.5</strong> wyznacza powtórkę wtedy, gdy dane
+               słowo zaczyna Ci umykać. Każdą kartę oceniasz jednym dotknięciem:
+               <em>Powtórz, Trudne, Dobre albo Łatwe</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FUNKCJE ===== -->
+    <section id="funkcje" class="section section-alt">
+      <div class="container">
+        <p class="section-eyebrow reveal">Możliwości</p>
+        <h2 class="section-title reveal">Wszystko, czego potrzebujesz do nauki słówek</h2>
+        <p class="section-sub reveal">Tylko to, co faktycznie pomaga zapamiętywać słówka.</p>
+        <div class="features">
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.2"/></svg>
+            </div>
+            <h3>Nauka na ekranie blokady</h3>
+            <p>Słówka widzisz przy każdym zerknięciu na telefon. To setki mikropowtórek
+               dziennie, bo na ekran blokady i tak patrzysz częściej niż gdziekolwiek indziej.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2.5l4 4-4 4"/><path d="M3 11.5v-1a4 4 0 0 1 4-4h14"/><path d="M7 21.5l-4-4 4-4"/><path d="M21 12.5v1a4 4 0 0 1-4 4H3"/></svg>
+            </div>
+            <h3>Inteligentne powtórki FSRS‑4.5</h3>
+            <p>Nowoczesny algorytm rozłożonych w czasie powtórek, następca klasycznego
+               SM‑2 znanego z Anki. Pokazuje słowo dokładnie wtedy, gdy masz je
+               zaraz zapomnieć.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"/><path d="M1 14h6M9 8h6M17 16h6"/></svg>
+            </div>
+            <h3>Edytor wyglądu ekranu blokady</h3>
+            <p>Do wyboru gotowe szablony wyglądu, a każdy można dostroić:
+               układ, styl i liczbę słów na tapecie ustawiasz we wbudowanym edytorze.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20v-4M12 20V10M18 20V4"/><path d="M3 20h18"/></svg>
+            </div>
+            <h3>Statystyki i seria dni</h3>
+            <p>Liczba powtórek, stan każdej karty i seria kolejnych dni nauki.
+               Trudno odpuścić, kiedy licznik serii rośnie już drugi tydzień.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9.5 9.5 0 0 1 0 14"/></svg>
+            </div>
+            <h3>Wymowa i zapis fonetyczny</h3>
+            <p>Każde angielskie słowo ma transkrypcję IPA, a wbudowany przewodnik
+               fonetyczny uczy, jak ją czytać.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11.5l2 2 4-4"/></svg>
+            </div>
+            <h3>Prywatność i offline</h3>
+            <p>Aplikacja nie ma nawet uprawnienia dostępu do internetu, więc Twoje
+               dane fizycznie nie mogą nigdzie wypłynąć. Konto i rejestracja też
+               są zbędne.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TALIE ===== -->
+    <section id="talie" class="section">
+      <div class="container">
+        <p class="section-eyebrow reveal">Zawartość</p>
+        <h2 class="section-title reveal">Gotowe talie w cenie aplikacji</h2>
+        <p class="section-sub reveal">Instalujesz i uczysz się od pierwszej minuty. Ręczne wpisywanie słówek nie jest do niczego potrzebne.</p>
+        <div class="decks">
+          <div class="deck deck-featured reveal">
+            <div class="deck-tag">EN</div>
+            <h3>Angielski: fundament</h3>
+            <p>2859 najczęstszych słów z listy NGSL, z polskimi tłumaczeniami
+               i zapisem fonetycznym IPA. Po opanowaniu rozumiesz <strong>~92%</strong>
+               codziennego języka mówionego.</p>
+          </div>
+          <div class="deck deck-featured reveal">
+            <div class="deck-tag">ES</div>
+            <h3>Hiszpański: fundament</h3>
+            <p>2500 najczęstszych hiszpańskich słów z polskimi tłumaczeniami,
+               wybranych na podstawie milionów prawdziwych zdań z korpusu Tatoeba.
+               Pokrywają około <strong>92%</strong> mowy potocznej.</p>
+          </div>
+          <div class="deck reveal">
+            <div class="deck-tag">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>Stolice świata</h3>
+            <p>Europa, Azja, Afryka, obie Ameryki i Oceania, osobno albo wszystkie
+               naraz. Przydatne w szkole i za każdym razem, gdy ktoś przy stole
+               zapyta o stolicę Kazachstanu.</p>
+          </div>
+          <div class="deck reveal">
+            <div class="deck-tag">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2v6.5L4.6 18a2 2 0 0 0 1.8 3h11.2a2 2 0 0 0 1.8-3L14 8.5V2"/><path d="M8.5 2h7"/><path d="M7.2 14.5h9.6"/></svg>
+            </div>
+            <h3>Pierwiastki chemiczne</h3>
+            <p>Symbole i nazwy pierwiastków. Zamiast kuć przed sprawdzianem,
+               powtarzasz je przy okazji, na ekranie blokady.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CENNIK ===== -->
+    <section id="cennik" class="section section-alt">
+      <div class="container">
+        <p class="section-eyebrow reveal">Cena</p>
+        <h2 class="section-title reveal">Jedna cena. Na zawsze.</h2>
+        <p class="section-sub reveal">Kupujesz raz i aplikacja jest Twoja. Tak, jak kiedyś kupowało się programy.</p>
+        <div class="pricing reveal">
+          <div class="pricing-card">
+            <div class="pricing-badge">Bez subskrypcji</div>
+            <div class="pricing-price">9,99 zł</div>
+            <div class="pricing-period">cena premierowa · jednorazowo · na zawsze</div>
+            <ul class="pricing-list">
+              <li><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Wszystkie talie: angielski, hiszpański, stolice, pierwiastki</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Nauka na ekranie blokady + sesje powtórek FSRS</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Wszystkie przyszłe aktualizacje w cenie</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Zero reklam, teraz i na zawsze</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Zero zbierania danych, działa offline</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Bez konta i rejestracji</li>
+            </ul>
+            <!-- Po premierze przywróć (zweryfikuj link):
+            <a href="https://play.google.com/store/apps/details?id=dev.kownet.autofiszki" class="btn btn-primary btn-lg btn-block">
+              Kup w Google Play
+            </a>
+            -->
+            <span class="btn btn-soon btn-lg btn-block"><span class="pulse-dot" aria-hidden="true"></span>Wkrótce w Google Play</span>
+            <p class="pricing-note">Mniej niż bilet do kina, a zostaje z Tobą na lata.</p>
+          </div>
+          <div class="pricing-compare">
+            <h3>Dlaczego nie subskrypcja?</h3>
+            <p>Typowa aplikacja do nauki języków kosztuje <strong>30–60 zł miesięcznie</strong>
+               i przerywa naukę reklamami, jeśli nie płacisz.</p>
+            <p>Narzędzie do nauki powinno działać jak dobry słownik:
+               <strong>raz kupione, służy latami</strong>. Bez okresów próbnych,
+               odblokowywania funkcji i dopłat za „premium".</p>
+            <div class="compare-table">
+              <div class="compare-row compare-head">
+                <span></span><span>AutoFiszki</span><span>Typowa appka</span>
+              </div>
+              <div class="compare-row">
+                <span>Płatność</span><span class="good">raz</span><span class="bad">co miesiąc</span>
+              </div>
+              <div class="compare-row">
+                <span>Reklamy</span><span class="good">brak</span><span class="bad">są</span>
+              </div>
+              <div class="compare-row">
+                <span>Konto / dane</span><span class="good">niepotrzebne</span><span class="bad">wymagane</span>
+              </div>
+              <div class="compare-row">
+                <span>Nauka bez otwierania aplikacji</span><span class="good">tak</span><span class="bad">nie</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section">
+      <div class="container container-narrow">
+        <p class="section-eyebrow reveal">Pytania i odpowiedzi</p>
+        <h2 class="section-title reveal">Częste pytania</h2>
+        <div class="faq reveal">
+          <!-- Po premierze usuń to pytanie (także z JSON-LD FAQPage w <head>) -->
+          <details>
+            <summary>Kiedy aplikacja będzie dostępna?</summary>
+            <p>Już niedługo — trwają ostatnie przygotowania do publikacji
+               w Google Play. W dniu premiery na tej stronie pojawi się
+               link do sklepu.</p>
+          </details>
+          <details>
+            <summary>Czy to na pewno jednorazowy zakup?</summary>
+            <p>Tak. Płacisz raz w Google Play i aplikacja jest Twoja,
+               razem ze wszystkimi taliami i przyszłymi aktualizacjami.
+               Nie ma subskrypcji, mikropłatności ani wersji premium.</p>
+          </details>
+          <details>
+            <summary>Czy w aplikacji są reklamy?</summary>
+            <p>Nie ma i nigdy nie będzie. Skoro płacisz za aplikację,
+               nie jesteś produktem.</p>
+          </details>
+          <details>
+            <summary>Jak działa nauka na ekranie blokady?</summary>
+            <p>AutoFiszki generują tapetę ekranu blokady z Twoimi aktualnymi
+               fiszkami i co jakiś czas ją odświeżają. Za każdym razem, gdy sięgasz
+               po telefon, widzisz słówka bez otwierania czegokolwiek.
+               Wygląd tapety ustawiasz we wbudowanym edytorze.</p>
+          </details>
+          <details>
+            <summary>Co to jest FSRS i czym różni się od zwykłych fiszek?</summary>
+            <p>FSRS‑4.5 (Free Spaced Repetition Scheduler) to nowoczesny algorytm
+               powtórek rozłożonych w czasie. Na podstawie Twoich ocen przewiduje,
+               kiedy zaczniesz zapominać dane słowo, i właśnie wtedy je pokazuje.
+               W praktyce robisz mniej powtórek, a pamiętasz więcej.</p>
+          </details>
+          <details>
+            <summary>Jakich języków mogę się uczyć?</summary>
+            <p>Obecnie w aplikacji są talie fundamentalne angielskiego (2859 słów)
+               i hiszpańskiego (2500 słów) z polskimi tłumaczeniami, a do tego talie
+               stolic świata i pierwiastków chemicznych. Kolejne talie pojawią się
+               w darmowych aktualizacjach.</p>
+          </details>
+          <details>
+            <summary>Czy aplikacja wymaga internetu albo konta?</summary>
+            <p>Nie. Wszystkie dane są na Twoim telefonie, nauka działa w pełni
+               offline i nie musisz zakładać żadnego konta.</p>
+          </details>
+          <details>
+            <summary>Na jakich telefonach działa?</summary>
+            <p>Na telefonach z Androidem 8.0 lub nowszym. Wersja na iOS nie jest
+               obecnie planowana.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA KOŃCOWE ===== -->
+    <section class="final-cta">
+      <div class="container reveal">
+        <h2>Twój telefon i tak będzie odblokowywany 100&nbsp;razy dziennie.</h2>
+        <p>Niech chociaż uczy Cię słówek.</p>
+        <!-- Po premierze przywróć (zweryfikuj link):
+        <a href="https://play.google.com/store/apps/details?id=dev.kownet.autofiszki" class="btn btn-primary btn-lg">
+          Pobierz AutoFiszki w Google Play
+        </a>
+        -->
+        <span class="btn btn-soon btn-lg"><span class="pulse-dot" aria-hidden="true"></span>Wkrótce w Google Play</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== STOPKA ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-logo">AutoFiszki</p>
+        <p class="footer-tag">Nauka słówek mimochodem — na ekranie blokady Twojego telefonu.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p><a href="mailto:kownet.dev@gmail.com">kownet.dev@gmail.com</a></p>
+        <h4 class="footer-h4-gap">Dokumenty</h4>
+        <p><a href="polityka-prywatnosci/">Polityka prywatności</a></p>
+      </div>
+      <div>
+        <h4>Źródła danych</h4>
+        <p class="footer-small">
+          Talia angielska: <a href="https://www.newgeneralservicelist.com/" rel="noopener">New General Service List (NGSL 1.2)</a>
+          — Browne, Culligan &amp; Phillips oraz <a href="https://www.wiktionary.org/" rel="noopener">Wiktionary</a> (IPA),
+          licencja CC BY‑SA 4.0.<br>
+          Talia hiszpańska: ranking frekwencyjny oparty na korpusie
+          <a href="https://tatoeba.org/" rel="noopener">Tatoeba</a> (CC BY 2.0 FR).
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 AutoFiszki. Wszystkie prawa zastrzeżone. · <a href="polityka-prywatnosci/">Polityka prywatności</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

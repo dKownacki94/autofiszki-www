@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://autofiszki.pl/sitemap.xml
