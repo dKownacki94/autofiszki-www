@@ -14,7 +14,7 @@
   ·
   <a href="https://autofiszki.pl/polityka-prywatnosci/">Polityka prywatności</a>
   ·
-  <em>Wkrótce w Google Play</em>
+  <a href="https://play.google.com/store/apps/details?id=dev.kownet.autofiszki"><strong>Pobierz w Google Play</strong></a>
 </p>
 
 ---
