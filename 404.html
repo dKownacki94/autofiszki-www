@@ -5,15 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nie ma takiej strony — AutoFiszki</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
   <!-- Style celowo inline: strona 404 może być serwowana z dowolnej ścieżki -->
   <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f4ef; --text: #1e1d1a; --text-dim: #67635b;
+      --accent-fill: #4c68e6; --on-accent: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #121110; --text: #eae7e0; --text-dim: #a8a397; }
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #0b1020;
-      color: #eef1fb;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -23,23 +32,19 @@
       line-height: 1.6;
     }
     .code {
+      font-family: "Noto Serif", Georgia, "Times New Roman", serif;
       font-size: 5rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #818cf8, #5eead4);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      letter-spacing: -0.02em;
     }
-    h1 { font-size: 1.4rem; font-weight: 700; margin: 8px 0 10px; }
-    p { color: #a8b1cf; margin-bottom: 28px; }
+    h1 { font-size: 1.35rem; font-weight: 600; margin: 8px 0 10px; }
+    p { color: var(--text-dim); margin-bottom: 28px; }
     a {
       display: inline-block;
-      padding: 13px 28px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #818cf8, #5eead4);
-      color: #0b1020;
-      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 12px;
+      background: var(--accent-fill);
+      color: var(--on-accent);
+      font-weight: 600;
       text-decoration: none;
     }
   </style>
