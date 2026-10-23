@@ -1,6 +1,7 @@
 /* ===== AutoFiszki — landing page =====
    Ten sam język co aplikacja: papier i tusz, jeden akcent w kolorze tła ikony,
-   karty z cienką linią zamiast cieni i gradientów, dużo powietrza. */
+   karty z cienką linią zamiast cieni i gradientów, dużo powietrza. Układ asymetryczny:
+   nagłówki od lewej, zrzuty na przemian z lewej i prawej. */
 
 /* Font Inter hostowany lokalnie (bez zapytań do serwerów Google — RODO) */
 @font-face {
@@ -241,72 +242,68 @@ img, svg { display: block; }
   border-radius: 2px;
 }
 
-/* ===== Hero ===== */
-.hero { padding: 96px 0 88px; }
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 64px;
-}
-
-/* Mały, rozstrzelony podpis — jak „AKTYWNA TALIA" w aplikacji */
-.hero-eyebrow,
-.section-eyebrow {
+/* ===== Podpis sekcji: mały, rozstrzelony — jak „AKTYWNA TALIA" w aplikacji ===== */
+.label {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--text-dim);
+  margin-bottom: 16px;
 }
 
-.hero-eyebrow { margin-bottom: 22px; }
+/* ===== Góra strony ===== */
+.hero { padding: 88px 0 96px; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 64px;
+}
+
+.hero .label { margin-bottom: 22px; }
 
 .hero h1 {
-  font-size: clamp(2.2rem, 4.4vw, 3.3rem);
+  font-size: clamp(2.2rem, 4.6vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.14;
-  letter-spacing: -0.025em;
-  margin-bottom: 22px;
+  line-height: 1.12;
+  letter-spacing: -0.028em;
+  margin-bottom: 24px;
   text-wrap: balance;
 }
 
 .hero-sub {
-  font-size: 1.12rem;
+  font-size: 1.15rem;
   color: var(--text-dim);
-  max-width: 34rem;
-  margin-bottom: 28px;
+  max-width: 32rem;
+  margin-bottom: 36px;
   text-wrap: pretty;
 }
 
 .hero-sub strong { color: var(--text); font-weight: 600; }
 
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 32px;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 6px 12px;
-  border-radius: 8px;
-}
-
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 28px;
+}
+
+/* Najważniejsze fakty jednym cichym zdaniem zamiast rzędu plakietek */
+.hero-facts {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.hero-facts span { white-space: nowrap; }
+
+.hero-facts span:not(:last-child)::after {
+  content: "·";
+  color: var(--line-strong);
+  padding: 0 2px 0 8px;
 }
 
 .hero-note {
@@ -314,19 +311,19 @@ img, svg { display: block; }
   color: var(--text-dim);
 }
 
-/* ===== Telefon ze zrzutem ekranu: delikatnie się unosi ===== */
-.hero-phone {
+/* Telefon z tapetą na żywo: delikatnie się unosi */
+.hero-demo {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .phone {
   width: 290px;
-  height: 615px;
   background: #121110;
-  border-radius: 42px;
+  border-radius: 44px;
   border: 1px solid var(--line-strong);
-  padding: 11px;
+  padding: 10px;
   animation: phone-float 6s ease-in-out infinite;
 }
 
@@ -335,57 +332,203 @@ img, svg { display: block; }
   50% { transform: translateY(-14px) rotate(-0.5deg); }
 }
 
-.phone-shot {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 32px;
+.phone .ls { border-radius: 34px; }
+
+/* Przymiarka wyglądu: pięć próbek tła pod telefonem */
+.tpl-picker {
+  display: flex;
+  gap: 12px;
+  margin-top: 36px;
 }
 
-/* ===== Pasek liczb ===== */
-.stats-strip {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-alt);
-  padding: 48px 0;
+.tpl-swatch {
+  width: 26px;
+  height: 42px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  text-align: center;
+.tpl-swatch:hover { transform: translateY(-2px); }
+
+.tpl-swatch[aria-pressed="true"] {
+  outline: 2px solid var(--accent-fill);
+  outline-offset: 3px;
 }
 
-.stat { position: relative; }
+.tpl-swatch[data-set-tpl="ivory"] { background: #faf7f2; }
+.tpl-swatch[data-set-tpl="midnight"] { background: linear-gradient(180deg, #1b2735, #0b1016); }
+.tpl-swatch[data-set-tpl="sunset"] { background: linear-gradient(180deg, #ff7e5f, #feb47b); }
+.tpl-swatch[data-set-tpl="washi"] { background: linear-gradient(135deg, #f3efe6 62%, #9c4a36 62% 70%, #f3efe6 70%); }
+.tpl-swatch[data-set-tpl="arcade"] { background: #000; box-shadow: inset 0 0 0 3px #000, inset 0 0 0 4px #2121de; }
 
-.stat + .stat::before {
-  content: "";
-  position: absolute;
-  left: -16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 52px;
-  background: var(--line);
-}
-
-.stat-value {
-  display: block;
-  font-size: 2.3rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  color: var(--text);
-  letter-spacing: -0.02em;
-}
-
-.stat-label {
-  font-size: 0.88rem;
+.tpl-name {
+  margin-top: 14px;
+  font-size: 0.85rem;
   color: var(--text-dim);
 }
 
+.tpl-name span { color: var(--text); font-weight: 500; }
+
+/* ===== Tapeta ekranu blokady =====
+   Odwzorowanie TemplateRenderer.kt: pozycje i rozmiary to ułamki szerokości/wysokości ekranu,
+   tekst zawija się na 78% szerokości, kotwica w pionie to środek bloku tekstu. */
+.ls {
+  --ls-font: Roboto, "Inter", system-ui, sans-serif;
+  --w-x: 0.5;  --w-y: 0.42; --w-s: 0.1;   --w-wt: 700; --w-st: normal; --w-al: center; --w-off: 39cqw;
+  --p-x: 0.5;  --p-y: 0.5;  --p-s: 0.055; --p-wt: 400; --p-st: italic; --p-al: center; --p-off: 39cqw;
+  --t-x: 0.5;  --t-y: 0.7;  --t-s: 0.075; --t-wt: 400; --t-st: normal; --t-al: center; --t-off: 39cqw;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 20;
+  container-type: size;
+  overflow: hidden;
+  background: var(--ls-bg);
+  font-family: var(--ls-font);
+  user-select: none;
+}
+
+.ls-mini {
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+
+.ls-text {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ls-text.is-swapping { opacity: 0; }
+
+.ls-word, .ls-ipa, .ls-tr {
+  position: absolute;
+  display: block;
+  width: 78cqw;
+  line-height: 1.1;
+  transform: translateY(-50%);
+  overflow-wrap: break-word;
+}
+
+.ls-word {
+  left: calc(var(--w-x) * 100cqw - var(--w-off));
+  top: calc(var(--w-y) * 100cqh);
+  font-size: calc(var(--w-s) * 100cqw);
+  font-weight: var(--w-wt);
+  font-style: var(--w-st);
+  text-align: var(--w-al);
+  color: var(--w-c);
+}
+
+.ls-ipa {
+  left: calc(var(--p-x) * 100cqw - var(--p-off));
+  top: calc(var(--p-y) * 100cqh);
+  font-size: calc(var(--p-s) * 100cqw);
+  font-weight: var(--p-wt);
+  font-style: var(--p-st);
+  text-align: var(--p-al);
+  color: var(--p-c);
+}
+
+.ls-tr {
+  left: calc(var(--t-x) * 100cqw - var(--t-off));
+  top: calc(var(--t-y) * 100cqh);
+  font-size: calc(var(--t-s) * 100cqw);
+  font-weight: var(--t-wt);
+  font-style: var(--t-st);
+  text-align: var(--t-al);
+  color: var(--t-c);
+}
+
+.ls-ipa[hidden] { display: none; }
+
+/* Zegar rysuje telefon, nie aplikacja — tu tylko dla wrażenia prawdziwego ekranu blokady */
+.ls-clock {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 34cqh;
+  color: var(--ls-clock);
+  font-family: Roboto, "Inter", system-ui, sans-serif;
+  pointer-events: none;
+}
+
+.ls-lock, .ls-time, .ls-date {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.ls-lock {
+  top: 8cqh;
+  width: 5.5cqw;
+  height: 5.5cqw;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ls-time {
+  top: 20cqh;
+  font-size: 17cqw;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.ls-date {
+  top: 27.5cqh;
+  font-size: 3.8cqw;
+  opacity: 0.9;
+}
+
+/* Pięć wbudowanych szablonów (TemplatePresets.kt) */
+.ls[data-tpl="ivory"] {
+  --ls-bg: #faf7f2;
+  --ls-clock: rgba(30, 29, 26, 0.82);
+  --w-c: #1a1a1a; --p-c: #9a8f80; --t-c: #3d3a36;
+}
+
+.ls[data-tpl="midnight"] {
+  --ls-bg: linear-gradient(180deg, #1b2735, #0b1016);
+  --ls-clock: #fff;
+  --w-c: #f2f2f2; --p-c: #8fa3bf; --t-c: #e8c07d;
+}
+
+.ls[data-tpl="sunset"] {
+  --ls-bg: linear-gradient(180deg, #ff7e5f, #feb47b);
+  --ls-clock: #fff;
+  --w-c: #4a2c2a; --p-c: #6b3f38; --t-c: #4a2c2a;
+}
+
+/* Tusz i papier: słowo z lewej w dolnej połowie, tłumaczenie w przeciwnym rogu */
+.ls[data-tpl="washi"] {
+  --ls-bg: #f3efe6;
+  --ls-clock: rgba(35, 33, 30, 0.82);
+  --w-x: 0.12; --w-y: 0.5;  --w-s: 0.09;  --w-wt: 400; --w-al: left;  --w-off: 0cqw;  --w-c: #23211e;
+  --p-x: 0.12; --p-y: 0.57; --p-s: 0.045; --p-st: normal; --p-al: left;  --p-off: 0cqw;  --p-c: #8a8277;
+  --t-x: 0.88; --t-y: 0.74; --t-s: 0.06;  --t-al: right; --t-off: 78cqw; --t-c: #9c4a36;
+}
+
+/* Labirynt: ściany, kropki i zjadacz jak w ArcadeDecoration.kt (jednostka = 1% szerokości) */
+.ls[data-tpl="arcade"] {
+  --ls-font: ui-monospace, "Cascadia Mono", Consolas, "Roboto Mono", monospace;
+  --ls-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 222.22' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%232121DE' stroke-width='.9'%3E%3Crect x='3' y='3' width='94' height='216.22' rx='5'/%3E%3Crect x='5.5' y='5.5' width='89' height='211.22' rx='3.5'/%3E%3Crect x='14' y='164.67' width='26' height='4' rx='2'/%3E%3Crect x='60' y='164.67' width='26' height='4' rx='2'/%3E%3C/g%3E%3Cg fill='%23FFB8AE'%3E%3Ccircle cx='30' cy='191.11' r='.9'/%3E%3Ccircle cx='36' cy='191.11' r='.9'/%3E%3Ccircle cx='42' cy='191.11' r='.9'/%3E%3Ccircle cx='48' cy='191.11' r='.9'/%3E%3Ccircle cx='54' cy='191.11' r='.9'/%3E%3Ccircle cx='60' cy='191.11' r='.9'/%3E%3Ccircle cx='66' cy='191.11' r='.9'/%3E%3Ccircle cx='72' cy='191.11' r='.9'/%3E%3Ccircle cx='78' cy='191.11' r='.9'/%3E%3Ccircle cx='88' cy='191.11' r='2.2'/%3E%3Ccircle cx='10' cy='80' r='2.2'/%3E%3Ccircle cx='90' cy='80' r='2.2'/%3E%3C/g%3E%3Cpath fill='%23FFE600' d='M20 191.11L23.69 193.69A4.5 4.5 0 1 1 23.69 188.53Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat, #000;
+  --ls-clock: #fff;
+  --w-c: #ffe600;
+  --p-s: 0.05; --p-c: #8c8cff;
+  --t-y: 0.62; --t-s: 0.065; --t-c: #fff;
+}
+
 /* ===== Sekcje ===== */
-.section { padding: 112px 0; }
+.section { padding: 120px 0; }
+.section-tight { padding: 88px 0; }
 
 .section-alt {
   background: var(--bg-alt);
@@ -393,202 +536,251 @@ img, svg { display: block; }
   border-bottom: 1px solid var(--line);
 }
 
-.section-eyebrow {
-  text-align: center;
-  margin-bottom: 14px;
-}
-
 .section-title {
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  text-align: center;
-  margin-bottom: 14px;
+  line-height: 1.18;
+  letter-spacing: -0.022em;
+  max-width: 40rem;
+  margin-bottom: 56px;
   text-wrap: balance;
 }
 
 .section-sub {
-  text-align: center;
   color: var(--text-dim);
   font-size: 1.06rem;
-  max-width: 40rem;
-  margin: 0 auto 56px;
+  max-width: 38rem;
+  margin: -36px 0 48px;
   text-wrap: pretty;
 }
 
-/* ===== Karty: kartka z cienką linią (jak PaperCard w aplikacji) ===== */
-.step, .feature, .deck {
+/* ===== Jeden dzień: pięć ekranów blokady ===== */
+.day {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  margin-bottom: 72px;
+}
+
+/* Lekki schodek: każdy kolejny ekran trochę niżej, jak upływ dnia */
+.day-item:nth-child(2) { margin-top: 18px; }
+.day-item:nth-child(3) { margin-top: 36px; }
+.day-item:nth-child(4) { margin-top: 18px; }
+
+.day-caption {
+  margin-top: 14px;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+.day-caption span {
+  color: var(--text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  margin-right: 6px;
+}
+
+/* ===== Krótkie notki: ikona, tytuł, jedno zdanie, linia nad spodem ===== */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.extras {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+}
+
+.note, .extra {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 22px;
+}
+
+.note .icon, .extra .icon { margin-bottom: 16px; }
+
+.note h3, .extra h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 6px; }
+
+.note p, .extra p { color: var(--text-dim); font-size: 0.93rem; text-wrap: pretty; }
+
+/* ===== Sceny: zrzut aplikacji + krótki opis ===== */
+.scene {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: clamp(48px, 9vw, 120px);
+  align-items: center;
+}
+
+.scene-flip { grid-template-columns: minmax(0, 1fr) 300px; }
+.scene-flip .shot { order: 2; }
+
+.scene-sub { margin-top: 112px; }
+
+.shot img {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.scene-copy { max-width: 30rem; }
+
+.scene-title {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.022em;
+  margin-bottom: 18px;
+  text-wrap: balance;
+}
+
+.scene-lead {
+  color: var(--text-dim);
+  font-size: 1.08rem;
+  margin-bottom: 32px;
+  text-wrap: pretty;
+}
+
+.scene-lead strong { color: var(--text); font-weight: 600; }
+
+.facts { list-style: none; }
+
+.facts li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.98rem;
+}
+
+.facts li:last-child { border-bottom: 1px solid var(--line); }
+
+/* ===== Szablony: rząd pięciu miniatur jak siatka w aplikacji ===== */
+.tpl-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.tpl-card {
+  display: block;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tpl-card .ls-mini { transition: border-color 0.15s ease; }
+
+.tpl-card:hover .ls-mini { border-color: var(--line-strong); }
+
+/* Wybrany: ramka w kolorze logo, jak wybrany szablon w aplikacji */
+.tpl-card[aria-pressed="true"] .ls-mini {
+  border-color: var(--accent-fill);
+  box-shadow: 0 0 0 1px var(--accent-fill);
+}
+
+.tpl-card-name {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+}
+
+.tpl-card[aria-pressed="true"] .tpl-card-name { color: var(--text); font-weight: 600; }
+
+/* ===== Talie: każda w osobnej karcie, jak ekran talii w aplikacji ===== */
+.decks {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.deck {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 24px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  transition: border-color 0.2s ease;
 }
 
-.step:hover, .feature:hover, .deck:hover { border-color: var(--line-strong); }
+.deck-name { font-weight: 600; font-size: 1.02rem; }
 
-/* ===== Kroki ===== */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.deck-name small {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-dim);
 }
 
-.step { padding: 32px 28px; }
-
-.step-num {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: var(--text);
-  border: 1px solid var(--line-strong);
-  border-radius: 50%;
-  margin-bottom: 20px;
+.deck-count {
+  color: var(--text-dim);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
-
-.step h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: 10px; }
-
-.step p { color: var(--text-dim); font-size: 0.95rem; }
-
-.step strong, .step em { color: var(--text); }
-
-/* ===== Funkcje ===== */
-.features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.feature { padding: 30px 26px; }
-
-/* Sama ikona, bez kolorowego tła pod nią */
-.feature-icon {
-  color: var(--text);
-  margin-bottom: 18px;
-}
-
-.feature-icon .icon { width: 26px; height: 26px; }
-
-.feature h3 { font-size: 1.08rem; font-weight: 600; margin-bottom: 8px; }
-
-.feature p { color: var(--text-dim); font-size: 0.93rem; }
-
-/* ===== Talie ===== */
-.decks {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.deck { padding: 30px 28px; }
-
-.deck-tag {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  margin-bottom: 18px;
-}
-
-.deck h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; }
-
-.deck p { color: var(--text-dim); font-size: 0.95rem; }
-
-.deck strong { color: var(--text); font-weight: 600; }
 
 /* ===== Cennik ===== */
 .pricing {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(48px, 8vw, 104px);
+  align-items: center;
 }
 
 /* Jedyna wyróżniona kartka na stronie: obwódka w kolorze logo, jak aktywna talia */
 .pricing-card {
-  position: relative;
   background: var(--surface);
   border: 2px solid var(--accent-fill);
   border-radius: 20px;
-  padding: 44px 34px 34px;
-  text-align: center;
-}
-
-.pricing-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  color: var(--text-dim);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 3px 12px;
-  border-radius: 8px;
-  white-space: nowrap;
+  padding: 40px 34px 32px;
 }
 
 .pricing-price {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 700;
+  line-height: 1.1;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-  color: var(--text);
 }
 
 .pricing-period {
   color: var(--text-dim);
-  margin-bottom: 28px;
+  margin: 6px 0 28px;
 }
 
 .pricing-list {
   list-style: none;
-  text-align: left;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   gap: 11px;
-  font-size: 0.95rem;
+  font-size: 0.97rem;
 }
 
 .pricing-list li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 11px;
 }
-
-.pricing-list .icon-check { margin-top: 4px; }
 
 .pricing-note {
   margin-top: 16px;
   font-size: 0.85rem;
   color: var(--text-dim);
+  text-align: center;
 }
-
-.pricing-compare h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 14px; }
-
-.pricing-compare > p {
-  color: var(--text-dim);
-  margin-bottom: 14px;
-  text-wrap: pretty;
-}
-
-.pricing-compare strong { color: var(--text); font-weight: 600; }
 
 .compare-table {
-  margin-top: 26px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -665,9 +857,9 @@ img, svg { display: block; }
   font-size: 0.95rem;
 }
 
-/* ===== CTA końcowe ===== */
+/* ===== Koniec strony: jedno zdanie, cicho ===== */
 .final-cta {
-  padding: 120px 0;
+  padding: 128px 0;
   text-align: center;
   background: var(--bg-alt);
   border-top: 1px solid var(--line);
@@ -825,18 +1017,46 @@ img, svg { display: block; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .phone { animation: none; }
+  .ls-text { transition: none; }
 }
 
 /* ===== Responsywność ===== */
 @media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 56px; text-align: center; }
-  .hero-copy { display: flex; flex-direction: column; align-items: center; }
-  .hero-sub { margin-left: auto; margin-right: auto; }
-  .hero-badges, .hero-cta { justify-content: center; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat:nth-child(3)::before { display: none; }
-  .steps, .features { grid-template-columns: 1fr; }
-  .decks { grid-template-columns: 1fr; }
+  .hero { padding: 56px 0 72px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+
+  /* Przewijane w bok rzędy: ekrany dnia i miniatury szablonów */
+  .day, .tpl-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-right: -4.5vw;
+    padding-right: 4.5vw;
+    padding-bottom: 6px;
+  }
+
+  .day::-webkit-scrollbar, .tpl-row::-webkit-scrollbar { display: none; }
+
+  .day-item, .tpl-card {
+    flex: 0 0 150px;
+    scroll-snap-align: start;
+  }
+
+  .day-item:nth-child(n) { margin-top: 0; }
+
+  .day { margin-bottom: 56px; }
+
+  .notes { grid-template-columns: 1fr; gap: 28px; }
+  .extras { grid-template-columns: repeat(2, 1fr); }
+
+  /* Na wąskim ekranie najpierw podpis i nagłówek, potem zrzut, który opisują */
+  .scene, .scene-flip { grid-template-columns: 1fr; gap: 44px; }
+  .scene .shot { order: 2; }
+  .shot { width: min(270px, 78%); margin: 0 auto; }
+  .scene-copy { max-width: none; }
+  .scene-sub { margin-top: 88px; }
+
   .pricing { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
 }
@@ -864,15 +1084,29 @@ img, svg { display: block; }
 
   .nav-links .btn { justify-content: center; margin-top: 6px; }
 
-  .hero { padding: 64px 0 64px; }
+  .hero-cta .btn { width: 100%; }
 
-  .section { padding: 72px 0; }
+  .section { padding: 80px 0; }
+  .section-tight { padding: 64px 0; }
+  .section-title { margin-bottom: 40px; }
+  .section-sub { margin: -24px 0 36px; }
 
-  .final-cta { padding: 80px 0; }
+  .final-cta { padding: 88px 0; }
 
-  .stats-grid { gap: 24px; }
+  .phone { width: 260px; }
 
-  .stat + .stat::before { display: none; }
+  .decks { grid-template-columns: 1fr; }
+  .deck { padding: 16px 20px; }
+}
 
-  .phone { width: 260px; height: 552px; }
+@media (max-width: 520px) {
+  .extras { grid-template-columns: 1fr; gap: 28px; }
+  .pricing-card { padding: 32px 24px 26px; }
+  .compare-row {
+    grid-template-columns: 1.3fr 1fr 1fr;
+    column-gap: 10px;
+    padding: 12px 14px;
+    font-size: 0.86rem;
+  }
+  .compare-head { font-size: 0.66rem; letter-spacing: 0.06em; }
 }
