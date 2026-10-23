@@ -361,7 +361,12 @@ img, svg { display: block; }
 .tpl-swatch[data-set-tpl="midnight"] { background: linear-gradient(180deg, #1b2735, #0b1016); }
 .tpl-swatch[data-set-tpl="sunset"] { background: linear-gradient(180deg, #ff7e5f, #feb47b); }
 .tpl-swatch[data-set-tpl="washi"] { background: linear-gradient(135deg, #f3efe6 62%, #9c4a36 62% 70%, #f3efe6 70%); }
-.tpl-swatch[data-set-tpl="arcade"] { background: #000; box-shadow: inset 0 0 0 3px #000, inset 0 0 0 4px #2121de; }
+.tpl-swatch[data-set-tpl="digital_rain"] {
+  background:
+    linear-gradient(180deg, transparent 8%, rgba(0, 255, 65, 0.9) 58%, transparent 60%) 30% 0 / 3px 100% no-repeat,
+    linear-gradient(180deg, transparent 30%, rgba(0, 255, 65, 0.9) 84%, transparent 86%) 70% 0 / 3px 100% no-repeat,
+    #020803;
+}
 
 .tpl-name {
   margin-top: 14px;
@@ -516,14 +521,15 @@ img, svg { display: block; }
   --t-x: 0.88; --t-y: 0.74; --t-s: 0.06;  --t-al: right; --t-off: 78cqw; --t-c: #9c4a36;
 }
 
-/* Labirynt: ściany, kropki i zjadacz jak w ArcadeDecoration.kt (jednostka = 1% szerokości) */
-.ls[data-tpl="arcade"] {
+/* Cyfrowy deszcz: spadający zielony kod jak w DigitalRainDecoration.kt. Obraz generuje
+   GlanceCard/tools/build_digital_rain_svg.py z tego samego ziarna co aplikacja. */
+.ls[data-tpl="digital_rain"] {
   --ls-font: ui-monospace, "Cascadia Mono", Consolas, "Roboto Mono", monospace;
-  --ls-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 222.22' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%232121DE' stroke-width='.9'%3E%3Crect x='3' y='3' width='94' height='216.22' rx='5'/%3E%3Crect x='5.5' y='5.5' width='89' height='211.22' rx='3.5'/%3E%3Crect x='14' y='164.67' width='26' height='4' rx='2'/%3E%3Crect x='60' y='164.67' width='26' height='4' rx='2'/%3E%3C/g%3E%3Cg fill='%23FFB8AE'%3E%3Ccircle cx='30' cy='191.11' r='.9'/%3E%3Ccircle cx='36' cy='191.11' r='.9'/%3E%3Ccircle cx='42' cy='191.11' r='.9'/%3E%3Ccircle cx='48' cy='191.11' r='.9'/%3E%3Ccircle cx='54' cy='191.11' r='.9'/%3E%3Ccircle cx='60' cy='191.11' r='.9'/%3E%3Ccircle cx='66' cy='191.11' r='.9'/%3E%3Ccircle cx='72' cy='191.11' r='.9'/%3E%3Ccircle cx='78' cy='191.11' r='.9'/%3E%3Ccircle cx='88' cy='191.11' r='2.2'/%3E%3Ccircle cx='10' cy='80' r='2.2'/%3E%3Ccircle cx='90' cy='80' r='2.2'/%3E%3C/g%3E%3Cpath fill='%23FFE600' d='M20 191.11L23.69 193.69A4.5 4.5 0 1 1 23.69 188.53Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat, #000;
   --ls-clock: #fff;
-  --w-c: #ffe600;
-  --p-s: 0.05; --p-c: #8c8cff;
-  --t-y: 0.62; --t-s: 0.065; --t-c: #fff;
+  --w-c: #00ff41;
+  --p-s: 0.05; --p-c: #6fcf87;
+  --t-y: 0.62; --t-s: 0.065; --t-c: #d9ffe0;
+  background: url("../img/cyfrowy-deszcz.svg") center / 100% 100% no-repeat, #020803;
 }
 
 /* ===== Sekcje ===== */

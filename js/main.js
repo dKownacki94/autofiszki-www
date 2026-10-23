@@ -36,7 +36,7 @@ const templateNames = {
   midnight: "Nocne niebo",
   sunset: "Zachód słońca",
   washi: "Tusz i papier",
-  arcade: "Labirynt",
+  digital_rain: "Cyfrowy deszcz",
 };
 
 function setTemplate(id) {
