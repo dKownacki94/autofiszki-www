@@ -32,7 +32,7 @@
       <a href="../" class="back-link">← Wróć na stronę główną</a>
 
       <h1>Polityka prywatności</h1>
-      <p class="legal-meta">aplikacji AutoFiszki oraz strony autofiszki.pl · wersja 1.0 · obowiązuje od 12&nbsp;lipca&nbsp;2026&nbsp;r.</p>
+      <p class="legal-meta">aplikacji AutoFiszki oraz strony autofiszki.pl · wersja 1.1 · obowiązuje od 25&nbsp;października&nbsp;2026&nbsp;r.</p>
 
       <div class="tldr">
         <p>Najkrótsza wersja</p>
@@ -62,19 +62,25 @@
       <ul>
         <li>postępy nauki fiszek (oceny, harmonogram powtórek, statystyki, serię dni nauki),</li>
         <li>ustawienia Aplikacji (np. dzienny limit nowych kart, konfigurację wyglądu ekranu blokady),</li>
+        <li>własne szablony ekranu blokady, w tym zdjęcia wybrane przez Ciebie na tło
+            (Aplikacja zapisuje ich kopię w swojej pamięci),</li>
         <li>zawartość talii, w tym ewentualne modyfikacje wprowadzone przez użytkownika.</li>
       </ul>
       <p>Dane te <strong>nigdy nie opuszczają Twojego urządzenia</strong> za sprawą Aplikacji i Administrator
          <strong>nie ma do nich żadnego dostępu</strong>. Gwarantuje to konstrukcja techniczna Aplikacji:
          nie posiada ona uprawnienia dostępu do internetu (brak uprawnienia
          <code>INTERNET</code> w systemie Android), więc <strong>fizycznie nie jest w stanie</strong> niczego wysłać.</p>
+      <p><strong>Wymowa słów.</strong> Do czytania słów na głos Aplikacja używa syntezatora mowy
+         zainstalowanego w telefonie (np. usług mowy Google albo syntezatora producenta telefonu)
+         i przekazuje mu wyłącznie tekst czytanego słowa. Syntezator jest osobną aplikacją systemową,
+         działającą na zasadach swojego dostawcy. Wymowę wyłączysz, wybierając w menu talii język „Brak”.</p>
       <p>Ponieważ Administrator nie przetwarza w ten sposób żadnych danych osobowych użytkownika,
          dane te nie są nikomu przekazywane, nie są profilowane ani wykorzystywane w żadnym innym celu.</p>
       <p>Aby trwale usunąć wszystkie dane Aplikacji, wystarczy wyczyścić jej dane w ustawieniach
          systemu Android lub odinstalować Aplikację.</p>
 
       <h2>§ 4. Uprawnienia systemowe</h2>
-      <p>Aplikacja korzysta z dwóch uprawnień systemu Android:</p>
+      <p>Do działania Aplikacja potrzebuje dwóch uprawnień systemu Android:</p>
       <ul>
         <li><strong>Ustawianie tapety</strong> (<code>SET_WALLPAPER</code>) — wyłącznie po to,
             aby wyświetlać fiszki na ekranie blokady telefonu.</li>
@@ -82,8 +88,16 @@
             wyłącznie po to, aby po ponownym uruchomieniu telefonu przywrócić automatyczne
             odświeżanie fiszek na ekranie blokady.</li>
       </ul>
+      <p>Oprócz nich biblioteka WorkManager (część Android Jetpack), której Aplikacja używa do planowania
+         odświeżania ekranu blokady, dodaje automatycznie trzy uprawnienia techniczne:
+         <code>WAKE_LOCK</code> (dokończenie zaplanowanego zadania przy wygaszonym ekranie),
+         <code>ACCESS_NETWORK_STATE</code> (sprawdzenie, czy telefon ma połączenie z siecią — bez możliwości
+         korzystania z internetu) i <code>FOREGROUND_SERVICE</code> (dłuższe zadania w tle).
+         Żadne z nich nie daje dostępu do Twoich danych.</p>
       <p>Aplikacja <strong>nie żąda</strong> dostępu do: internetu, lokalizacji, aparatu, mikrofonu,
-         kontaktów, SMS-ów, plików multimedialnych ani żadnych innych danych z urządzenia.</p>
+         kontaktów, SMS-ów, plików multimedialnych ani żadnych innych danych z urządzenia.
+         Zdjęcie na tło szablonu, plik ze słowami do importu i plik kopii zapasowej wskazujesz sam
+         w systemowym oknie wyboru — Aplikacja dostaje dostęp tylko do wskazanego pliku.</p>
 
       <h2>§ 5. Zakup Aplikacji w Google Play</h2>
       <p>Aplikacja jest dystrybuowana przez sklep Google Play. Płatność za Aplikację obsługuje
